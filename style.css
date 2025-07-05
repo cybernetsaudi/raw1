@@ -1,0 +1,254 @@
+:root {
+    /* Color palette */
+    --primary: #1a73e8;
+    --primary-dark: #0d47a1;
+    --secondary: #5f6368;
+    --accent: #fbbc04;
+    --success: #34a853;
+    --warning: #fbbc04;
+    --error: #ea4335;
+    --background: #ffffff;
+    --surface: #f8f9fa;
+    --border: #dadce0;
+    --text-primary: #202124;
+    --text-secondary: #5f6368;
+    
+    /* Typography */
+    --font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    /* Border radius */
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 1rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --shadow-md: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    --shadow-lg: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-md);
+    color: var(--text-primary);
+    background-color: var(--surface);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button, .button {
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .button:hover {
+    background-color: var(--primary-dark);
+    text-decoration: none;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-family);
+    font-size: var(--font-size-md);
+}
+
+/* Login page styles */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--background);
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+    padding: var(--spacing-xl);
+    background-color: white;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.login-form h1 {
+    margin-bottom: var(--spacing-lg);
+    color: var(--primary);
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+}
+
+.error-message {
+    color: var(--error);
+    background-color: rgba(234, 67, 53, 0.1);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    margin-top: var(--spacing-md);
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .login-form {
+        max-width: 90%;
+        padding: var(--spacing-lg);
+    }
+}
+
+/* Add this to assets/css/style.css */
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 50px auto;
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-lg);
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: var(--text-primary);
+}
+
+.modal h2 {
+    margin-top: 0;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+/* Form validation styles */
+.invalid-input {
+    border-color: var(--error) !important;
+    background-color: rgba(234, 67, 53, 0.05);
+}
+
+.error-message {
+    color: var(--error);
+    font-size: var(--font-size-sm);
+    margin-top: 0.25rem;
+}
+
+/* Responsive modal adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 20px auto;
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+}
+
+/* Focus handling for accessibility */
+.modal:focus-within {
+    outline: none;
+}
+
+.modal-content:focus {
+    outline: none;
+}
+
+.modal input:focus,
+.modal select:focus,
+.modal textarea:focus,
+.modal button:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Add these classes to support form layouts */
+.form-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.form-section h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--primary);
+}
+
+.wide-form {
+    max-width: 1200px;
+}
